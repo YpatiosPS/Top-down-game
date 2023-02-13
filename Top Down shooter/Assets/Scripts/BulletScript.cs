@@ -6,9 +6,10 @@ public class BulletScript : MonoBehaviour
 {
     [SerializeField] private GameObject hitEffect;
     private GameObject hitEffectInstance;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hitEffect!= null)
+        if (hitEffect!= null && !collision.gameObject.CompareTag("Player"))
         {
             hitEffectInstance = Instantiate(hitEffect,transform.position,Quaternion.identity);
             Destroy(hitEffectInstance,2.0f);
@@ -16,4 +17,5 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
