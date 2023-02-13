@@ -28,9 +28,10 @@ public class Shooting : MonoBehaviour
     private void Shoot()
     {
         bulletInstance = Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-        bulletTransform = bulletInstance.transform;
-        bulletTransform.eulerAngles = new Vector3(bulletTransform.rotation.x, bulletTransform.rotation.y, bulletSpawnpoint.rotation.z + 45);
+  //      bulletTransform = bulletInstance.transform;
+    //    bulletTransform.eulerAngles = new Vector3(bulletTransform.rotation.x, bulletTransform.rotation.y, bulletSpawnpoint.rotation.z + 45);
         bulletRb = bulletInstance.GetComponent<Rigidbody2D>();
         bulletRb.AddForce(bulletSpawnpoint.right * bulletForce, ForceMode2D.Impulse);
+        Destroy(bulletInstance, 2);
     }
 }
