@@ -33,7 +33,7 @@ public class MovementScript : MonoBehaviour
             Vector2 lookDir = mousePos - rb.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
-            Debug.Log("Current angle: " + angle);
+           // Debug.Log("Current angle: " + angle);
         if(angle<= -90 || angle>=90)
         {
             srSprite.flipY = true;

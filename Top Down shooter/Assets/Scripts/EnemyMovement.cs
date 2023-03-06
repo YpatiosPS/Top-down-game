@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private int attackPower = 1;
     private Rigidbody2D enemyRB;
     private Vector2 playerPosition;
     private Vector2 lookDirection;
@@ -24,5 +25,14 @@ public class EnemyMovement : MonoBehaviour
         lookDirection = playerPosition - enemyRB.position;
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         enemyRB.SetRotation(angle);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.transform.name);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth.currentPlayerHealth -= attackPower;
+            Destroy(gameObject);
+        }
     }
 }

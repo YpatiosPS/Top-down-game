@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hitEffect!= null && !collision.gameObject.CompareTag("Player"))
+        if (hitEffect!= null && collision.gameObject.CompareTag("Enemy"))
         {
             hitEffectInstance = Instantiate(hitEffect,transform.position,Quaternion.identity);
             Destroy(hitEffectInstance,2.0f);

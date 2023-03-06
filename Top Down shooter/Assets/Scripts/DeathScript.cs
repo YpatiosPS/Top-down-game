@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 public class DeathScript : MonoBehaviour
 {
@@ -22,5 +23,6 @@ public class DeathScript : MonoBehaviour
         Destroy(collision.gameObject);
         deathEffectInstance = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(deathEffectInstance, 2.0f);
+               
     }
 }
